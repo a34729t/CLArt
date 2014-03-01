@@ -75,17 +75,22 @@
     }
 }
 
-
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
 {
     [self.locationManager startRangingBeaconsInRegion:self.region];
     NSLog(@"LM didEnterRegion");
+    
+    [self sendNotification:@"didEnterRegion"];
+    
+    
 }
 
 -(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
 {
     [self.locationManager stopRangingBeaconsInRegion:self.region];
     NSLog(@"LM didExitRegion");
+    
+    [self sendNotification:@"didExitRegion"];
 }
 
 -(void)locationManager:(CLLocationManager*)manager

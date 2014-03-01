@@ -34,7 +34,9 @@
     if (self=[super init]) {
         // We create a queue and start the central manager
         dispatch_queue_t centralQueue=dispatch_queue_create("com.flaccoDev.centralqueue", 0);
-        self.centralManager=[[CBCentralManager alloc]initWithDelegate:self queue:centralQueue];
+        self.centralManager=[[CBCentralManager alloc]initWithDelegate:self
+                                                                queue:centralQueue
+                                                              options:@{CBCentralManagerOptionRestoreIdentifierKey: CM_RESTORE_KEY}];
         self.connectedPeripherals = [[NSMutableSet alloc] init];
     }
     return self;
@@ -48,9 +50,16 @@
     NSLog(@"CM startDetecting");
     
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(NO),CBCentralManagerOptionShowPowerAlertKey:@YES};
-    //    [self.centralManager scanForPeripheralsWithServices:@[self.tweetNetServiceUUID] options:scanOptions];
-    //    [self.centralManager retrieveConnectedPeripheralsWithServices:@[self.tweetNetServiceUUID]];
+//    [self.centralManager scanForPeripheralsWithServices:@[self.tweetNetServiceUUID] options:scanOptions];
+//    [self.centralManager retrieveConnectedPeripheralsWithServices:@[self.tweetNetServiceUUID]];
+//    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:BEACON_0_ID], [CBUUID UUIDWithString:BEACON_1_ID], [CBUUID UUIDWithString:BEACON_2_ID], [CBUUID UUIDWithString:BEACON_3_ID], [CBUUID UUIDWithString:BEACON_4_ID], [CBUUID UUIDWithString:BEACON_5_ID]] options:scanOptions];
+    
+    // This won't work in background mode
     [self.centralManager scanForPeripheralsWithServices:@[] options:scanOptions];
+    
+    // This doesn't at all. WTF?
+//    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"F76C345E-C7B1-5581-66C7-EA6589B9C6E4"]]
+//                                                options:scanOptions];
     [self.centralManager retrieveConnectedPeripheralsWithServices:@[]];
 }
 
@@ -77,6 +86,7 @@
 }
 
 #pragma mark - CBCentralManager Delegates
+// NOTE: We do not do service discovery as Estimote beacons do not support this
 
 //call on init of centralManager to check if BT is supportted and available
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
@@ -97,6 +107,15 @@
     }
 }
 
+- (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary *)dict
+{
+    NSArray *peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey];
+    for (CBPeripheral *peripheral in peripherals)
+    {
+        NSLog(@"CM willRestoreState peripheral:%@", peripheral.identifier);
+    }
+}
+
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
      advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
@@ -107,7 +126,7 @@
     if ([peripheral.name isEqualToString:@"estimote"])
     {
 //        [self addPeripheral:peripheral];
-        [central connectPeripheral:peripheral options:nil];
+//        [central connectPeripheral:peripheral options:nil];
         NSLog(@"CM Discovered name:%@ id:%@ rssi:%@", peripheral.name, [peripheral.identifier UUIDString] , RSSI);
         
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -125,66 +144,7 @@
     }
 }
 
+#pragma mark - state restoration (background)
 
-- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
-    
-    NSLog(@"CM didFailToConnectPeripheral to %@. (%@)", peripheral, [error localizedDescription]);
-    [self removePeripheral:peripheral];
-}
-
-
-- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
-{
-    NSLog(@"CM didDisconnectPeripheral name:%@",peripheral.name);
-    [self removePeripheral:peripheral];
-}
-
-#define SERVICE_UUID @"00000000-0000-0000-0000-000000000000"
-
-- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
-{
-    NSLog(@"CM didConnectPeripheral name:%@",peripheral.name);
-    [self addPeripheral:peripheral];
-    [peripheral discoverServices:nil];
-//    [peripheral discoverServices:@[[CBUUID UUIDWithString:SERVICE_UUID]]];
-}
-
-#pragma mark - CBPeripheral Delegates
-
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
-{
-    if (error)
-    {
-        NSLog(@"CM Error discovering services: %@", [error localizedDescription]);
-        [self removePeripheral:peripheral];
-    }
-    else
-    {
-        NSLog(@"CM didDiscoverService");
-        for (CBService *service in peripheral.services)
-        {
-            NSLog(@"CM didDiscoverService: %@", service);
-            [peripheral discoverCharacteristics:nil forService:service];
-        }
-    }
-}
-
-
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
-{
-    if (error)
-    {
-        NSLog(@"CM Error discovering characteristics: %@", [error localizedDescription]);
-        [self removePeripheral:peripheral];
-        return;
-    }
-    else
-    {
-        for (CBCharacteristic *characteristic in service.characteristics)
-        {
-            NSLog(@"CM didDiscoverCharacteristicsForService: %@", characteristic);
-        }
-    }
-}
 
 @end

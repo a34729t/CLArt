@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		268F849A18C1CD3500617B8E /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 268F849918C1CD3500617B8E /* BeaconManager.m */; };
+		268F849C18C26CC400617B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 268F849B18C26CC400617B8E /* README.md */; };
 		26FD717618BFB6A80033D8E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD717518BFB6A80033D8E9 /* Foundation.framework */; };
 		26FD717818BFB6A80033D8E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD717718BFB6A80033D8E9 /* CoreGraphics.framework */; };
 		26FD717A18BFB6A80033D8E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD717918BFB6A80033D8E9 /* UIKit.framework */; };
@@ -24,7 +25,6 @@
 		26FD71A218BFB6A80033D8E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26FD71A018BFB6A80033D8E9 /* InfoPlist.strings */; };
 		26FD71A418BFB6A80033D8E9 /* EstimoteV1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD71A318BFB6A80033D8E9 /* EstimoteV1Tests.m */; };
 		26FD71AF18BFB71F0033D8E9 /* CentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD71AE18BFB71F0033D8E9 /* CentralManager.m */; };
-		26FD71B418BFF0C00033D8E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 26FD71B318BFF0C00033D8E9 /* README.md */; };
 		26FD71BA18C10EF10033D8E9 /* CBUUID+StringExtraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD71B918C10EF10033D8E9 /* CBUUID+StringExtraction.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,7 @@
 /* Begin PBXFileReference section */
 		268F849818C1CD3500617B8E /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
 		268F849918C1CD3500617B8E /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
+		268F849B18C26CC400617B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		26FD717218BFB6A80033D8E9 /* EstimoteV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstimoteV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FD717518BFB6A80033D8E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26FD717718BFB6A80033D8E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,7 +65,6 @@
 		26FD71AD18BFB71F0033D8E9 /* CentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralManager.h; sourceTree = "<group>"; };
 		26FD71AE18BFB71F0033D8E9 /* CentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralManager.m; sourceTree = "<group>"; };
 		26FD71B218BFB7550033D8E9 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		26FD71B318BFF0C00033D8E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		26FD71B818C10EF10033D8E9 /* CBUUID+StringExtraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBUUID+StringExtraction.h"; sourceTree = "<group>"; };
 		26FD71B918C10EF10033D8E9 /* CBUUID+StringExtraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBUUID+StringExtraction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +96,7 @@
 		26FD716918BFB6A80033D8E9 = {
 			isa = PBXGroup;
 			children = (
+				268F849B18C26CC400617B8E /* README.md */,
 				26FD717B18BFB6A80033D8E9 /* EstimoteV1 */,
 				26FD719D18BFB6A80033D8E9 /* EstimoteV1Tests */,
 				26FD717418BFB6A80033D8E9 /* Frameworks */,
@@ -126,7 +127,6 @@
 		26FD717B18BFB6A80033D8E9 /* EstimoteV1 */ = {
 			isa = PBXGroup;
 			children = (
-				26FD71B318BFF0C00033D8E9 /* README.md */,
 				26FD71B018BFB7250033D8E9 /* Bluetooth */,
 				26FD71B118BFB7350033D8E9 /* UI */,
 				26FD717C18BFB6A80033D8E9 /* Supporting Files */,
@@ -276,7 +276,7 @@
 			files = (
 				26FD718C18BFB6A80033D8E9 /* Main_iPad.storyboard in Resources */,
 				26FD719118BFB6A80033D8E9 /* Images.xcassets in Resources */,
-				26FD71B418BFF0C00033D8E9 /* README.md in Resources */,
+				268F849C18C26CC400617B8E /* README.md in Resources */,
 				26FD718918BFB6A80033D8E9 /* Main_iPhone.storyboard in Resources */,
 				26FD718018BFB6A80033D8E9 /* InfoPlist.strings in Resources */,
 			);

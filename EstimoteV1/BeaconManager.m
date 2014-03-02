@@ -82,6 +82,10 @@
     
     [self sendNotification:@"didEnterRegion"];
     
+    if ([UIApplication sharedApplication].applicationState==UIApplicationStateBackground) {
+        [self.locationManager startRangingBeaconsInRegion:self.region];
+    }
+    
     
 }
 
@@ -123,6 +127,10 @@
             }
             
             NSLog(@"LM major:%@ minor:%@ distance:%@", major, minor, distance);
+            
+            if ([UIApplication sharedApplication].applicationState==UIApplicationStateBackground) {
+                [self sendNotification:[NSString stringWithFormat:@"%@%@", major, minor]];
+            }
         }
     }
 

@@ -75,6 +75,7 @@
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     
     if (application.applicationState==UIApplicationStateActive){
+        /*
         NSLog(@"application didReceiveLocalNotification (foreground)");
         NSString *body=notification.alertBody;
         
@@ -84,6 +85,7 @@
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];
+         */
     } else if (application.applicationState==UIApplicationStateBackground) {
         NSLog(@"application didReceiveLocalNotification (background)");
         application.applicationIconBadgeNumber = notification.applicationIconBadgeNumber+1;

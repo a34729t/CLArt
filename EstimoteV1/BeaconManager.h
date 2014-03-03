@@ -15,7 +15,7 @@
 
 @protocol BeaconManagerDelegate <NSObject>
 
--(void)discoveredBeacon:(NSUUID *)uuid rssi:(NSNumber *)RSSI;
+-(void)discoveredBeacon:(NSString *)key distance:(NSString *)distanceStr;
 
 @end
 

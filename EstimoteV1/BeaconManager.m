@@ -114,22 +114,31 @@
         // HACK ALERT: We use major + minor as key
         if ([self.registeredBeacons containsObject:[NSString stringWithFormat:@"%@%@", major, minor]])
         {
-            NSString *distance;
-            if(beacon.proximity == CLProximityUnknown) {
-                distance = @"Unknown Proximity";
-            } else if (beacon.proximity == CLProximityImmediate) {
-                distance = @"Immediate";
-            } else if (beacon.proximity == CLProximityNear) {
-                distance = @"Near";
-            } else if (beacon.proximity == CLProximityFar) {
-                distance = @"Far";
-//                [self sendNotification:@"Our beacon is far away!"];
+            NSString *beaconKey = [NSString stringWithFormat:@"%@%@", major, minor];
+            
+            if ([UIApplication sharedApplication].applicationState==UIApplicationStateActive)
+            {
+                
+                NSString *distance;
+                if(beacon.proximity == CLProximityUnknown) {
+                    distance = @"Unknown Proximity";
+                } else if (beacon.proximity == CLProximityImmediate) {
+                    distance = @"Immediate";
+                } else if (beacon.proximity == CLProximityNear) {
+                    distance = @"Near";
+                } else if (beacon.proximity == CLProximityFar) {
+                    distance = @"Far";
+                } else {
+                    return;
+                }
+                
+                // Fire delegate
+                NSLog(@"LM major:%@ minor:%@ distance:%@", major, minor, distance);
+                [self.delegate discoveredBeacon:beaconKey distance:distance];
             }
-            
-            NSLog(@"LM major:%@ minor:%@ distance:%@", major, minor, distance);
-            
-            if ([UIApplication sharedApplication].applicationState==UIApplicationStateBackground) {
-                [self sendNotification:[NSString stringWithFormat:@"%@%@", major, minor]];
+            else if ([UIApplication sharedApplication].applicationState==UIApplicationStateBackground)
+            {
+                [self sendNotification:beaconKey];
             }
         }
     }

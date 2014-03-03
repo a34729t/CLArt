@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261CB08F18C3E5A6000D5C2A /* BTGlassScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261CB08C18C3E5A6000D5C2A /* BTGlassScrollView.m */; };
+		261CB09018C3E5A6000D5C2A /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 261CB08E18C3E5A6000D5C2A /* UIImage+ImageEffects.m */; };
+		261CB09318C3E5C8000D5C2A /* CREDITS in Resources */ = {isa = PBXBuildFile; fileRef = 261CB09218C3E5C8000D5C2A /* CREDITS */; };
+		261CB09618C3E6BD000D5C2A /* GlassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261CB09518C3E6BD000D5C2A /* GlassViewController.m */; };
+		261CB09818C3F2F9000D5C2A /* Ass.plist in Resources */ = {isa = PBXBuildFile; fileRef = 261CB09718C3F2F9000D5C2A /* Ass.plist */; };
 		268F849A18C1CD3500617B8E /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 268F849918C1CD3500617B8E /* BeaconManager.m */; };
 		268F849C18C26CC400617B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 268F849B18C26CC400617B8E /* README.md */; };
 		26FD717618BFB6A80033D8E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD717518BFB6A80033D8E9 /* Foundation.framework */; };
@@ -39,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		261CB08B18C3E5A6000D5C2A /* BTGlassScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGlassScrollView.h; sourceTree = "<group>"; };
+		261CB08C18C3E5A6000D5C2A /* BTGlassScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGlassScrollView.m; sourceTree = "<group>"; };
+		261CB08D18C3E5A6000D5C2A /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		261CB08E18C3E5A6000D5C2A /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		261CB09218C3E5C8000D5C2A /* CREDITS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CREDITS; sourceTree = "<group>"; };
+		261CB09418C3E6BD000D5C2A /* GlassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlassViewController.h; sourceTree = "<group>"; };
+		261CB09518C3E6BD000D5C2A /* GlassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlassViewController.m; sourceTree = "<group>"; };
+		261CB09718C3F2F9000D5C2A /* Ass.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ass.plist; sourceTree = "<group>"; };
 		268F849818C1CD3500617B8E /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
 		268F849918C1CD3500617B8E /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
 		268F849B18C26CC400617B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -93,6 +106,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261CB09118C3E5AC000D5C2A /* BTGlassScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				261CB09218C3E5C8000D5C2A /* CREDITS */,
+				261CB08B18C3E5A6000D5C2A /* BTGlassScrollView.h */,
+				261CB08C18C3E5A6000D5C2A /* BTGlassScrollView.m */,
+				261CB08D18C3E5A6000D5C2A /* UIImage+ImageEffects.h */,
+				261CB08E18C3E5A6000D5C2A /* UIImage+ImageEffects.m */,
+			);
+			name = BTGlassScrollView;
+			sourceTree = "<group>";
+		};
 		26FD716918BFB6A80033D8E9 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +154,7 @@
 			children = (
 				26FD71B018BFB7250033D8E9 /* Bluetooth */,
 				26FD71B118BFB7350033D8E9 /* UI */,
+				261CB09118C3E5AC000D5C2A /* BTGlassScrollView */,
 				26FD717C18BFB6A80033D8E9 /* Supporting Files */,
 			);
 			path = EstimoteV1;
@@ -140,6 +166,7 @@
 				26FD718418BFB6A80033D8E9 /* AppDelegate.h */,
 				26FD718518BFB6A80033D8E9 /* AppDelegate.m */,
 				26FD71B218BFB7550033D8E9 /* Config.h */,
+				261CB09718C3F2F9000D5C2A /* Ass.plist */,
 				26FD717D18BFB6A80033D8E9 /* EstimoteV1-Info.plist */,
 				26FD717E18BFB6A80033D8E9 /* InfoPlist.strings */,
 				26FD718118BFB6A80033D8E9 /* main.m */,
@@ -186,6 +213,8 @@
 				26FD718A18BFB6A80033D8E9 /* Main_iPad.storyboard */,
 				26FD718D18BFB6A80033D8E9 /* ViewController.h */,
 				26FD718E18BFB6A80033D8E9 /* ViewController.m */,
+				261CB09418C3E6BD000D5C2A /* GlassViewController.h */,
+				261CB09518C3E6BD000D5C2A /* GlassViewController.m */,
 				26FD719018BFB6A80033D8E9 /* Images.xcassets */,
 			);
 			name = UI;
@@ -274,7 +303,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261CB09318C3E5C8000D5C2A /* CREDITS in Resources */,
 				26FD718C18BFB6A80033D8E9 /* Main_iPad.storyboard in Resources */,
+				261CB09818C3F2F9000D5C2A /* Ass.plist in Resources */,
 				26FD719118BFB6A80033D8E9 /* Images.xcassets in Resources */,
 				268F849C18C26CC400617B8E /* README.md in Resources */,
 				26FD718918BFB6A80033D8E9 /* Main_iPhone.storyboard in Resources */,
@@ -297,8 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261CB09018C3E5A6000D5C2A /* UIImage+ImageEffects.m in Sources */,
+				261CB08F18C3E5A6000D5C2A /* BTGlassScrollView.m in Sources */,
 				26FD718F18BFB6A80033D8E9 /* ViewController.m in Sources */,
 				26FD71BA18C10EF10033D8E9 /* CBUUID+StringExtraction.m in Sources */,
+				261CB09618C3E6BD000D5C2A /* GlassViewController.m in Sources */,
 				26FD718618BFB6A80033D8E9 /* AppDelegate.m in Sources */,
 				268F849A18C1CD3500617B8E /* BeaconManager.m in Sources */,
 				26FD718218BFB6A80033D8E9 /* main.m in Sources */,
